@@ -4,55 +4,74 @@
     android:id="@+id/activity_user_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.asm.MainActivity"
-    android:background="#009688"
-    android:padding="20dp">
+    android:background="@drawable/pitch_2"
+    android:padding="20dp"
+    tools:context="com.example.asm.MainActivity">
+
 
     <TextView
-        android:text="User Login Form"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView"
         android:gravity="center"
-        android:textSize="20dp"
-        android:textColor="#fff"/>
+        android:text="User Login Form"
+        android:textAllCaps="true"
+        android:textColor="#8BC34A"
+        android:textSize="20dp" />
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:background="#fbfefd"
-        android:inputType="textPersonName"
-        android:ems="10"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/email"
-        android:hint="Enter Your Email Here"
-        android:gravity="center"
-        />
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_email_icon"
+        android:drawableLeft="@drawable/custom_email_icon"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="@string/prompt_email"
+        android:inputType="textPersonName"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        tools:ignore="RtlSymmetry,TextFields" />
 
     <EditText
+        android:id="@+id/password"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:background="#fbfefd"
-        android:inputType="textPassword"
-        android:ems="10"
         android:layout_below="@+id/email"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/password"
-        android:hint="Enter Your Password Here"
-        android:gravity="center"/>
+        android:background="@drawable/custom_input"
+        android:drawableLeft="@drawable/custom_password_icon"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="@string/prompt_password"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        tools:ignore="RtlSymmetry" />
 
     <Button
-        android:text="Log In Here"
+        android:id="@+id/Login"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/Login" />
+        android:text="@string/action_sign_in_short" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="REGISTER" />
 
 </RelativeLayout>

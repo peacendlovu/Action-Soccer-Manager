@@ -1,4 +1,4 @@
-package com.example.asm;
+ package com.example.asm;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,27 +13,32 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
+
     EditText Email, Password;
     Button LogIn ;
+    Button register;
     String PasswordHolder, EmailHolder;
     String finalResult ;
-    String HttpURL = "https://androidjsonblog.000webhostapp.com/User/UserLogin.php";
+    String HttpURL = "https://lamp.ms.wits.ac.za/home/s2096330/login.php";
     Boolean CheckEditText ;
     ProgressDialog progressDialog;
     HashMap<String,String> hashMap = new HashMap<>();
-    HttpParse httpParse = new HttpParse();
+    http httpParse = new http();
     public static final String UserEmail = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_layout);
+        setContentView(R.layout.activity_main);
 
         Email = (EditText)findViewById(R.id.email);
+        EmailHolder = Email.getText().toString();
         Password = (EditText)findViewById(R.id.password);
+        PasswordHolder = Password.getText().toString();
         LogIn = (Button)findViewById(R.id.Login);
 
         LogIn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 
@@ -52,7 +57,20 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        register = findViewById(R.id.register);
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, registration_activity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
     public void CheckEditTextIsEmptyOrNot(){
 
         EmailHolder = Email.getText().toString();
@@ -90,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
                     finish();
 
-                    Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+                    Intent intent = new Intent(MainActivity.this, Welcome.class);
 
                     intent.putExtra(UserEmail,email);
 
@@ -99,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
 
-                    Toast.makeText(MainActivity.this,httpResponseMsg,Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,"log in unsuccessful",Toast.LENGTH_LONG).show();
                 }
 
             }
